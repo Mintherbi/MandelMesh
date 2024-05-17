@@ -57,13 +57,15 @@ namespace MandelMesh.Quaternion
 
         public static Quaternion operator ^(Quaternion A, int n)
         {
-            for (int x=a; x>0; --x)
+            Quaternion result = new Quaternion(0, 0, 0, 0);
+            result = A;
+
+            for(int x = 1; x < n; x++)
             {
-                this.Multiply(this);
+                result = result * A;
             }
-            return this; 
 
+            return result; 
         }
-
     }
 }
